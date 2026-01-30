@@ -35,3 +35,12 @@ spring:
               uri: lb://businessdomain-transaction
               predicates:
                 - Path=/transactions/**, /accounts/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

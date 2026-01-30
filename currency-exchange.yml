@@ -30,3 +30,12 @@ resilience4j:
         waitDurationInOpenState: 10s  # Espera 10s antes de volver a intentar
         permittedNumberOfCallsInHalfOpenState: 3   # Número de llamadas de prueba en estado HALF_OPEN
         automaticTransitionFromOpenToHalfOpenEnabled: true  # Transición automática de OPEN a HALF_OPEN
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
