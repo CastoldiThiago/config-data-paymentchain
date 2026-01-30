@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Apuntamos al contenedor de Keycloak
+          jwk-set-uri: http://paymentchain-keycloak:8080/realms/paymentchain-realm/protocol/openid-connect/certs
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          # Configuración de Discovery (Eureka)
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+
+          # Definición de Rutas
+          routes:
+            - id: customer-service
+              uri: lb://businessdomain-customer
+              predicates:
+                - Path=/customers/**
+
+            - id: transaction-service
+              uri: lb://businessdomain-transaction
+              predicates:
+                - Path=/transactions/**, /accounts/**
