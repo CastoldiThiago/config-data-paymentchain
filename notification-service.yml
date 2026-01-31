@@ -28,3 +28,21 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       properties:
           spring.json.trusted.packages: "*"
+  mail:
+    # Si existe la variable MAIL_HOST usa esa, si no, usa 'mailhog'
+    host: ${MAIL_HOST:mailhog}
+    port: ${MAIL_PORT:1025}
+
+    # Ponemos un email falso por defecto para que el campo "From" no quede vacío
+    username: ${MAIL_USERNAME:noreply@paymentchain.com}
+    password: ${MAIL_PASSWORD:} # Vacío por defecto
+
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_AUTH:false}      # MailHog no pide auth
+          starttls:
+            enable: ${MAIL_TLS:false}   # MailHog no pide TLS
+
+# Default recipient used by EmailService when none provided in event
+mail.default-recipient: ${MAIL_DEFAULT_RECIPIENT:recruiter@example.com}
