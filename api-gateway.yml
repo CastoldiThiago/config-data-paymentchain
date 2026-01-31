@@ -36,6 +36,27 @@ spring:
               predicates:
                 - Path=/transactions/**, /accounts/**
 
+            - id: transaction-docs
+              uri: lb://businessdomain-transaction
+              predicates:
+                - Path=/v3/api-docs/transaction
+              filters:
+                - RewritePath=/v3/api-docs/transaction, /v3/api-docs
+
+                - id: customer-docs
+                  uri: lb://businessdomain-customer
+                  predicates:
+                    - Path=/v3/api-docs/customer
+                  filters:
+                    - RewritePath=/v3/api-docs/customer, /v3/api-docs
+
+                - id: notification-docs
+                  uri: lb://notification-service
+                  predicates:
+                    - Path=/v3/api-docs/notification
+                  filters:
+                    - RewritePath=/v3/api-docs/notification, /v3/api-docs
+
 management:
   endpoints:
     web:
@@ -44,3 +65,14 @@ management:
   endpoint:
     health:
       show-details: always
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: 'Transacciones'
+        url: /v3/api-docs/transaction
+      - name: 'Clientes'
+        url: /v3/api-docs/customer
+      - name: 'Notificaciones'
+        url: /v3/api-docs/notification
