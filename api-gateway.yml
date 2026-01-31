@@ -28,10 +28,14 @@ spring:
           predicates:
             - Path=/customers/**
 
-        - id: transaction-service
+        - id: transaction-service-transactions
           uri: lb://businessdomain-transaction
           predicates:
             - Path=/transactions/**
+
+        - id: transaction-service-accounts
+          uri: lb://businessdomain-transaction
+          predicates:
             - Path=/accounts/**
 
         # Swagger Transaction
