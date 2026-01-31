@@ -18,14 +18,13 @@ spring:
     gateway:
       server:
         webflux:
-          # Configuración de Discovery (Eureka)
           discovery:
             locator:
               enabled: true
               lower-case-service-id: true
 
-          # Definición de Rutas
           routes:
+
             - id: customer-service
               uri: lb://businessdomain-customer
               predicates:
@@ -36,26 +35,29 @@ spring:
               predicates:
                 - Path=/transactions/**, /accounts/**
 
+            # Swagger Transaction
             - id: transaction-docs
               uri: lb://businessdomain-transaction
               predicates:
                 - Path=/v3/api-docs/transaction
               filters:
-                - RewritePath=/v3/api-docs/transaction, /v3/api-docs
+                - RewritePath=/v3/api-docs/transaction(?<segment>/?.*), /v3/api-docs${segment}
 
-                - id: customer-docs
-                  uri: lb://businessdomain-customer
-                  predicates:
-                    - Path=/v3/api-docs/customer
-                  filters:
-                    - RewritePath=/v3/api-docs/customer, /v3/api-docs
+            # Swagger Customer
+            - id: customer-docs
+              uri: lb://businessdomain-customer
+              predicates:
+                - Path=/v3/api-docs/customer
+              filters:
+                - RewritePath=/v3/api-docs/customer(?<segment>/?.*), /v3/api-docs${segment}
 
-                - id: notification-docs
-                  uri: lb://notification-service
-                  predicates:
-                    - Path=/v3/api-docs/notification
-                  filters:
-                    - RewritePath=/v3/api-docs/notification, /v3/api-docs
+            # Swagger Notification
+            - id: notification-docs
+              uri: lb://notification-service
+              predicates:
+                - Path=/v3/api-docs/notification
+              filters:
+                - RewritePath=/v3/api-docs/notification(?<segment>/?.*), /v3/api-docs${segment}
 
 management:
   endpoints:
