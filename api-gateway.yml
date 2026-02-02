@@ -37,6 +37,10 @@ spring:
           uri: lb://businessdomain-transaction
           predicates:
             - Path=/accounts/**
+        - id: transaction-service-accountproducts
+          uri: lb://businessdomain-transaction
+          predicates:
+            - Path=/account-products/**
 
 
 management:
