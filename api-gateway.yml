@@ -56,5 +56,3 @@ springdoc:
         url: /v3/api-docs/transaction
       - name: 'Clientes'
         url: /v3/api-docs/customer
-      - name: 'Notificaciones'
-        url: /v3/api-docs/notification
