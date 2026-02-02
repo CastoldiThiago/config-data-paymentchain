@@ -38,29 +38,6 @@ spring:
           predicates:
             - Path=/accounts/**
 
-        # Swagger Transaction
-        - id: transaction-docs
-          uri: lb://businessdomain-transaction
-          predicates:
-            - Path=/v3/api-docs/transaction/**
-          filters:
-            - 'RewritePath=/v3/api-docs/transaction(?<segment>/?.*), /v3/api-docs${segment}'
-
-        # Swagger Customer
-        - id: customer-docs
-          uri: lb://businessdomain-customer
-          predicates:
-            - Path=/v3/api-docs/customer/**
-          filters:
-            - 'RewritePath=/v3/api-docs/customer(?<segment>/?.*), /v3/api-docs${segment}'
-
-        # Swagger Notification
-        - id: notification-docs
-          uri: lb://notification-service
-          predicates:
-            - Path=/v3/api-docs/notification/**
-          filters:
-            - 'RewritePath=/v3/api-docs/notification(?<segment>/?.*), /v3/api-docs${segment}'
 
 management:
   endpoints:
