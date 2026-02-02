@@ -17,6 +17,8 @@ management:
 
 # Configuración Base de Kafka (Consumidor)
 spring:
+  application:
+    name: notification-service
   kafka:
     bootstrap-servers: kafka:29092
     consumer:
