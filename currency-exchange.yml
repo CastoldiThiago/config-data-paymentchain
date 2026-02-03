@@ -10,6 +10,10 @@ spring:
     redis:
       host: paymentchain-redis # Nombre del servicio en Docker Compose
       port: 6379
+  cache:
+    type: redis
+    redis:
+      time-to-live: 3600000 # 1 Hora
 
 eureka:
   client:
