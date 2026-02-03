@@ -4,9 +4,7 @@ server:
 spring:
   application:
     name: currency-exchange
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
+
   # Configuración de Redis
   data:
     redis:
