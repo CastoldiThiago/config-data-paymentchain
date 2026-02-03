@@ -39,3 +39,8 @@ management:
   endpoint:
     health:
       show-details: always
+external:
+  api:
+    exchange-rate:
+      key: 8d51e90dfe027ef9cd10a93f
+      url: https://v6.exchangerate-api.com/v6
