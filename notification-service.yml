@@ -41,13 +41,6 @@ spring:
           auth: ${MAIL_AUTH:false}      # MailHog no pide auth
           starttls:
             enable: ${MAIL_TLS:false}   # MailHog no pide TLS
-  data:
-    redis:
-      host: ${SPRING_REDIS_HOST:paymentchain-redis}
-      port: ${SPRING_REDIS_PORT:6379}
 
 # Default recipient used by EmailService when none provided in event
 mail.default-recipient: ${MAIL_DEFAULT_RECIPIENT:recruiter@example.com}
-cache:
-  debug:
-    enabled: true
