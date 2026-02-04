@@ -5,16 +5,27 @@ spring:
   application:
     name: currency-exchange
 
-  # Configuración de Redis
-  data:
-    redis:
-      host: paymentchain-redis # Nombre del servicio en Docker Compose
-      port: 6379
+  # Configuración de Redis (use the correct Spring Boot properties)
+  redis:
+    host: paymentchain-redis
+    port: 6379
   cache:
     type: redis
     redis:
       time-to-live: 3600000 # 1 Hora
 
+# Enable debug-only endpoints for cache inspection (turn off in prod)
+cache:
+  debug:
+    enabled: true
+
+
+# Logging para debugging
+logging:
+  level:
+    org.springframework.cache: DEBUG
+    org.springframework.data.redis: DEBUG
+    com.paymentchain.currencyexchange: DEBUG
 
 
 eureka:
