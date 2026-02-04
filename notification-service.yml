@@ -29,13 +29,11 @@ spring:
       properties:
           spring.json.trusted.packages: "*"
   mail:
-    # Si existe la variable MAIL_HOST usa esa, si no, usa 'mailhog'
     host: ${MAIL_HOST:mailhog}
     port: ${MAIL_PORT:1025}
 
-    # Ponemos un email falso por defecto para que el campo "From" no quede vacío
     username: ${MAIL_USERNAME:noreply@paymentchain.com}
-    password: ${MAIL_PASSWORD:} # Vacío por defecto
+    password: ${MAIL_PASSWORD:}
 
     properties:
       mail:

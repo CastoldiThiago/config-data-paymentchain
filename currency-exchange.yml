@@ -5,7 +5,6 @@ spring:
   application:
     name: currency-exchange
 
-  # Configuración de Redis (use the correct Spring Boot properties)
   redis:
     host: paymentchain-redis
     port: 6379
@@ -14,13 +13,11 @@ spring:
     redis:
       time-to-live: 3600000 # 1 Hora
 
-# Enable debug-only endpoints for cache inspection (turn off in prod)
 cache:
   debug:
     enabled: true
 
 
-# Logging para debugging
 logging:
   level:
     org.springframework.cache: DEBUG
