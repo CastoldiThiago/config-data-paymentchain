@@ -15,14 +15,6 @@ spring:
     redis:
       time-to-live: 3600000 # 1 Hora
 
-# Logging para debug de caché y Redis
-logging:
-  level:
-    org.springframework.cache: DEBUG
-    org.springframework.data.redis: DEBUG
-    org.springframework.data.redis.core.RedisTemplate: DEBUG
-    org.springframework.data.redis.connection: DEBUG
-    org.springframework.data.redis.serializer: DEBUG
 
 
 eureka:
