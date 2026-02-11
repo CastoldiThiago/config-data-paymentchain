@@ -37,9 +37,11 @@ management:
   tracing:
     sampling:
       probability: 1.0 # En prod debería ser menor
-    zipkin:
-      tracing:
-        endpoint: http://zipkin:9411/api/v2/spans
+
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411/api/v2/spans
+
   endpoint:
     health:
       show-details: always
