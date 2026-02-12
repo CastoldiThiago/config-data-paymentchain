@@ -1,19 +1,19 @@
 server:
   port: 8084 # Usamos un puerto distinto para evitar choques si corres local
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://eureka-server:8761/eureka/
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: always
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: always
 
 # Configuración Base de Kafka (Consumidor)
 spring:

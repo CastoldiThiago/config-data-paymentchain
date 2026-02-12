@@ -24,24 +24,24 @@ spring:
       properties:
         spring.json.add.type.headers: false # Para evitar problemas de clases entre microservicios
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://eureka-server:8761/eureka/
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  tracing:
-    sampling:
-      probability: 1.0 # En prod debería ser menor
-
-  zipkin:
-    tracing:
-      endpoint: http://zipkin:9411/api/v2/spans
-
-  endpoint:
-    health:
-      show-details: always
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  tracing:
+#    sampling:
+#      probability: 1.0 # En prod debería ser menor
+#
+#  zipkin:
+#    tracing:
+#      endpoint: http://zipkin:9411/api/v2/spans
+#
+#  endpoint:
+#    health:
+#      show-details: always

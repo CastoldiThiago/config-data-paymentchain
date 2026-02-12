@@ -1,10 +1,10 @@
 server:
   port: 8080
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://eureka-server:8761/eureka/
 
 spring:
   security:
@@ -53,14 +53,14 @@ spring:
             - Path=/account-products/**
 
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: always
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: always
 
 springdoc:
   swagger-ui:

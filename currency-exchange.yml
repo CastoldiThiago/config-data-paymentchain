@@ -25,12 +25,12 @@ logging:
     com.paymentchain.currencyexchange: DEBUG
 
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server:8761/eureka/
-    fetch-registry: true
-    register-with-eureka: true
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://eureka-server:8761/eureka/
+#    fetch-registry: true
+#    register-with-eureka: true
 
 # Configuración de Resilience4j (El Cortacircuitos)
 resilience4j:
@@ -45,14 +45,15 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 3   # Número de llamadas de prueba en estado HALF_OPEN
         automaticTransitionFromOpenToHalfOpenEnabled: true  # Transición automática de OPEN a HALF_OPEN
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: always
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: always
+
 external:
   api:
     exchange-rate:
